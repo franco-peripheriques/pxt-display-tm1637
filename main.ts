@@ -148,7 +148,6 @@ namespace display {
         //% blockId=grove_tm1637_display_bit block="%strip|show single number|%dispData|at digit|%bitAddr"
         //% dispData.min=0 dispData.max=9
         //% bitAddr.min=0 bitAddr.max=3
-        //% advanced=true
         bit(dispData: number, bitAddr: number) {
             if ((dispData == 0x7f) || (dispData == 0x3f) || ((dispData <= 9) && (bitAddr <= 3))) {
                 let segData = 0
@@ -177,7 +176,6 @@ namespace display {
          * @param pointEn value of point switch
          */
         //% blockId=grove_tm1637_display_point block="%strip|turn|%point|colon point"
-        //% advanced=true
         point(b: boolean) {
             this.pointFlag = b
             this.bit(this.buf[1], 0x01)
@@ -187,7 +185,6 @@ namespace display {
          * Clear the display
          */
         //% blockId=grove_tm1637_display_clear block="%strip|clear"
-        //% advanced=true
         clear() {
             this.bit(0x7f, 0x00)
             this.bit(0x7f, 0x01)
