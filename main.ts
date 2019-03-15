@@ -5,7 +5,7 @@ let TubeTab: number[] = [
 /**
  * Display interface for TM1637 chip
  */
-//% weight=10 color=#9F79EE icon="\uf108" block="Segment"
+//% weight=10 color=#9F79EE icon="\uf108" block="7-Segment display"
 namespace display {
     export enum Jpin_segment {
         //% block="J1 (P13,P14)"
