@@ -5,20 +5,33 @@ let TubeTab: number[] = [
 /**
  * Display interface for TM1637 chip
  */
-//% weight=10 color=#9F79EE icon="\uf108" block="Display"
+//% weight=10 color=#9F79EE icon="\uf108" block="Segment"
 namespace display {
+    export enum Jpin_segment {
+        //% block="J1 (P13,P14)"
+        J1 = 1,
+        //% block="J2 (P15,P16)"
+        J2 = 2
+    }
     /**
      * Create a new driver Grove - 4-Digit Display
      * @param clkPin value of clk pin number
      * @param dataPin value of data pin number
      */
-    //% blockId=grove_tm1637_create block="4-Digit Display at|%clkPin|and|%dataPin"
-    export function createDisplay(clkPin: DigitalPin, dataPin: DigitalPin): TM1637 {
+    //% blockId=grove_tm1637_create block="connect 4-Digit Display |pin %pin|"
+    export function createDisplay(jpin: Jpin_segment): TM1637 {
         let display = new TM1637()
-
+        switch (jpin) {
+            case 1:
+                display.clkPin = DigitalPin.P14
+                display.dataPin = DigitalPin.P13
+                break;
+            case 2:
+                display.clkPin = DigitalPin.P16
+                display.dataPin = DigitalPin.P15
+                break;
+        }
         display.buf = pins.createBuffer(4)
-        display.clkPin = clkPin
-        display.dataPin = dataPin
         display.brightnessLevel = 7
         display.pointFlag = false
         display.clear()
