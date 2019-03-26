@@ -1,6 +1,6 @@
 # pxt-display-tm1637
 
-
+TM1637 for robit
 
 ## TODO
 
@@ -15,7 +15,7 @@ Read more at https://makecode.microbit.org/packages/build-your-own
 
 ## License
 
-
+MIT
 
 ## Supported targets
 
